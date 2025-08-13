@@ -1,5 +1,5 @@
 {
     "code-runner.executorMap": {
-        "typescript": "npx tsx src/a002-typeAny/a002-typeAny.ts",
+        //"typescript": "npx tsx <pasta e caminho>/<arquivo>",
     }
 }
