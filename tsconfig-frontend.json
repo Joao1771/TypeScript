@@ -3,7 +3,7 @@
   "compilerOptions": {
     // File Layout
     // "rootDir": "./src",
-    "outDir": "./dist",
+    "outDir": "./frontend/assets/js",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
 
@@ -42,10 +42,8 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": false,
   },
   "include": [
-    "./src"
+    "./src/a018-webpack"
   ]
 }

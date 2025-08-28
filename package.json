@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:frontend": "webpack -w",
+    "build:backend": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -11,9 +13,12 @@
   "description": "",
   "type": "module",
   "devDependencies": {
+    "ts-loader": "^9.5.2",
     "tslib": "^2.8.1",
     "tsx": "^4.20.3",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "webpack": "^5.101.1",
+    "webpack-cli": "^6.0.1"
   },
   "repository": {
     "type": "git",
