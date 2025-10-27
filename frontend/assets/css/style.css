@@ -4,7 +4,7 @@
   --medium-color: #bbb;
   --border-color: #ddd;
   --main-color: #0074D9;
-  --error-color: #FF4136;
+  --error-color: #ff0d00;
   --border-radius: 4px;
 }
 
@@ -30,7 +30,7 @@ body {
 
 .form {
   padding: 20px;
-  background: #fff;
+  background: #bdb9b9;
   width: 100%;
   max-width: 400px;
   box-shadow: 0 0 5px rgba(0, 0, 0, .2);
@@ -46,6 +46,9 @@ body {
 
 .form .form-fields {
   margin: 0 0 20px;
+}
+.form .form-fields.show-error-message input{
+  border: solid 2px red;
 }
 
 .form label {
@@ -88,17 +91,14 @@ body {
 }
 
 .form .error-message {
-  font-size: 9pt;
+  font-size: 11pt;
   padding: 5px 0;
   color: var(--error-color);
   font-style: italic;
   display: none;
 }
 
-.form .show-error-message .error-message {
-  display: block;
+.form .show-error-message {
+  display: block !important;
 }
 
-.form .show-error-message input[type] {
-  border-color: var(--error-color);
-}

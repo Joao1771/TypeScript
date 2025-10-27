@@ -2,19 +2,110 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/a018-webpack/mod.ts":
-/*!*********************************!*\
-  !*** ./src/a018-webpack/mod.ts ***!
-  \*********************************/
+/***/ "./src/a019-exercicio/form-control.ts":
+/*!********************************************!*\
+  !*** ./src/a019-exercicio/form-control.ts ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (() => {
-    console.log("sou um modulo");
+const form = document.querySelector("#form");
+// const button = document.querySelector("button")
+// const inputs = Array.from(document.querySelectorAll("input"))
+const formFields = Array.from(document.querySelectorAll(".form-fields"));
+let motivoErro = "";
+let input;
+// pega o motivoErro e coloca nas spans correspondente e mostra
+function erro(motivoErro, elemento) {
+    let span = elemento.children[2]; // let span recebe span correspondente ao input
+    elemento.classList.add('show-error-message');
+    span.classList.add('show-error-message');
+    if (span)
+        span.innerHTML = motivoErro;
+}
+function verificar() {
+    let senhas = [];
+    for (let formField of formFields) { // para cada input
+        if (formFields.indexOf(formField) === 4)
+            continue; // pula o ultimo form-field do botao
+        input = formField.children[1];
+        if (!(input instanceof HTMLInputElement)) {
+            console.error("O campo não é um HTMLInputElement válido.");
+            continue; // Se não for um input válido, continua para o próximo campo
+        }
+        if (verificarVazio(input)) {
+            motivoErro = `A caixa não pode ficar vazia.`;
+            erro(motivoErro, formField);
+        }
+        else if (verificarCurto(input)) {
+            motivoErro = `Menos de 5 caracteres`;
+            erro(motivoErro, formField);
+        }
+        else if (verificarLongo(input)) {
+            motivoErro = `Mais de 50 caracteres.`;
+            erro(motivoErro, formField);
+        }
+        if (formFields.indexOf(formField) === 1) { // se o index do formField for 1 eh email
+            if (verificarEmail(input)) {
+            }
+        }
+        if (formFields.indexOf(formField) === 2) { // se o index do formField for 2 eh senha1
+            if (input)
+                senhas.push(input);
+        }
+        if (formFields.indexOf(formField) === 3) { // se o index do formField for 3 eh senha2
+            if (input !== undefined) {
+                senhas.push(input);
+            }
+        }
+        if (senhas.length === 2) {
+            if (senhas[0] !== undefined && senhas[1] !== undefined)
+                verificarIguais(senhas[0], senhas[1]);
+        }
+    }
+}
+//verifica se o input esta vazio
+function verificarVazio(elemento) {
+    if (!elemento.value)
+        return true;
+    return false;
+}
+//verifica se eh maior q 50 caracteres
+function verificarLongo(elemento) {
+    if (elemento.value.length > 50)
+        return true;
+    return false;
+}
+//verifica se eh menor q 5 caracteres
+function verificarCurto(elemento) {
+    console.log(elemento);
+    if (elemento.value.length < 5)
+        return true;
+    return false;
+}
+//verifica se senhas são iguais
+function verificarIguais(senha1, senha2) {
+    if (senha1.value != senha2.value) {
+        return true;
+    }
+    return false;
+}
+//verifica email com o validator
+function verificarEmail(elemento) {
+    return false;
+}
+//remove as classes de erro
+function tiraErro(elemento) {
+    let span = elemento.children[2];
+    elemento.classList.remove('show-error-message');
+    span.classList.remove('show-error-message');
+}
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    verificar();
+    motivoErro = "";
 });
+
 
 
 /***/ })
@@ -46,23 +137,6 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -78,13 +152,12 @@ __webpack_require__.r(__webpack_exports__);
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
-/*!***********************************!*\
-  !*** ./src/a018-webpack/index.ts ***!
-  \***********************************/
+/*!**********************************************!*\
+  !*** ./src/a019-exercicio/a019-exercicio.ts ***!
+  \**********************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mod_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mod.js */ "./src/a018-webpack/mod.ts");
+/* harmony import */ var _form_control__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./form-control */ "./src/a019-exercicio/form-control.ts");
 
-(0,_mod_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
 
 })();
 
