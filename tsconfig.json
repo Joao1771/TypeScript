@@ -2,8 +2,8 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    // "rootDir": "./src",
-    "outDir": "./dist",
+    "rootDir": "./src",                               //pasta raiz do projeto
+    "outDir": "./dist",                               //pasta de saída
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
 
@@ -14,7 +14,13 @@
     "types": [],
     // For nodejs:
     "lib": ["esnext", "DOM"],
+    //"allowJs": true,
+    //"checkJs": true,
+    //"jsx": "preserve",
     // "types": ["node"],
+    "removeComments": true,                            //remove os comentários quando compila
+    //"noEmit": true,                                  //não compila os arquivos, apenas checa
+    "noEmitOnError": true,                             //não compila se tiver erro no arquivo
     // and npm install -D @types/node
 
     // Other Outputs
@@ -35,7 +41,7 @@
     // "noPropertyAccessFromIndexSignature": true,
 
     // Recommended Options
-    "strict": true,
+    "strict": true,                                    //noImplicityAny,noImplicityThis, strict...
     "jsx": "react-jsx",
     "verbatimModuleSyntax": false,
     "isolatedModules": true,
