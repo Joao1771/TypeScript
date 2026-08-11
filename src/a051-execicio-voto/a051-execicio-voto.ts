@@ -52,4 +52,3 @@ let votacaoCores = new VoteOptions()
 
 votacaoCores.addOptions(azul, vermelho, amarelo)
 votacaoLinguagens.addOptions(typescript,javascript,python)
-
