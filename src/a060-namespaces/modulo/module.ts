@@ -1,0 +1,1 @@
+/// <reference path="../a060-namespaces.ts"/>
